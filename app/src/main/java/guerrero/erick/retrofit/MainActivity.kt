@@ -19,10 +19,12 @@ import retrofit2.create
 class MainActivity : AppCompatActivity() {
     lateinit var miRecycler:RecyclerView
     lateinit var adapter:ZeldaAdapter
-    lateinit var elementosZelda:List<ZeldaItem>
+    lateinit var elementosZelda:MutableList<ZeldaItem>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        elementosZelda = mutableListOf()
 
         miRecycler = findViewById(R.id.rvZelda)
         adapter = ZeldaAdapter(elementosZelda)
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 val response = ApiRepository().fetchContents()
                 Log.d("API","recibido: $response")
-                elementosZelda = response
+                elementosZelda.addAll(response)
                 adapter.notifyDataSetChanged()
             }catch (ex:Exception){
                 Log.e("ERROR API", "${ex.message}")

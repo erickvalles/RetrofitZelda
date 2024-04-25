@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import guerrero.erick.retrofit.api.ZeldaItem
 
-class ZeldaAdapter(val lista:List<ZeldaItem>):RecyclerView.Adapter<ZeldaHolder>() {
+class ZeldaAdapter(val lista:MutableList<ZeldaItem>):RecyclerView.Adapter<ZeldaHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZeldaHolder {
