@@ -17,26 +17,26 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.create
 
 class MainActivity : AppCompatActivity() {
-    lateinit var miRecycler:RecyclerView
-    lateinit var adapter:ZeldaAdapter
-    lateinit var elementosZelda:List<ZeldaItem>
+//    lateinit var miRecycler:RecyclerView
+//    lateinit var adapter:ZeldaAdapter
+//    lateinit var elementosZelda:List<ZeldaItem>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        miRecycler = findViewById(R.id.rvZelda)
-        adapter = ZeldaAdapter(elementosZelda)
+        //miRecycler = findViewById(R.id.rvZelda)
+//        adapter = ZeldaAdapter(elementosZelda)
 
-        miRecycler.adapter = adapter
-        miRecycler.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+//        miRecycler.adapter = adapter
+//        miRecycler.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
 
         lifecycleScope.launch {
             try {
                 val response = ApiRepository().fetchContents()
                 Log.d("API","recibido: $response")
-                elementosZelda = response
-                adapter.notifyDataSetChanged()
+                //elementosZelda = response
+                //adapter.notifyDataSetChanged()
             }catch (ex:Exception){
                 Log.e("ERROR API", "${ex.message}")
             }
