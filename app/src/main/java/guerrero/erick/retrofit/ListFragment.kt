@@ -17,7 +17,7 @@ import guerrero.erick.retrofit.api.ZeldaItem
  */
 class ListFragment : Fragment() {
     lateinit var recyclerZelda:RecyclerView
-    lateinit var listaElementos:List<ZeldaItem>
+    lateinit var listaElementos:MutableList<ZeldaItem>
 
 
     override fun onCreateView(
@@ -25,6 +25,7 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        listaElementos = mutableListOf()
         val vistaFragment = inflater.inflate(R.layout.fragment_list, container, false)
         recyclerZelda = vistaFragment.findViewById(R.id.rvZelda)
         val adapter = ZeldaAdapter(listaElementos)
